@@ -53,16 +53,16 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
           <table className="w-full border-collapse min-w-0 text-xs sm:text-sm">
             <thead>
               <tr className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-                <th className="p-2 sm:p-3 text-left text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-16">Sıra</th>
-                <th className="p-2 sm:p-3 text-left text-xs sm:text-sm font-semibold border-b border-blue-400 w-20 sm:w-32">Takım</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-6 sm:w-12">O</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-6 sm:w-12">G</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-6 sm:w-12">B</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-6 sm:w-12">M</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-6 sm:w-12">A</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-6 sm:w-12">Y</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-20">Averaj</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-16">Puan</th>
+                <th className="p-2 sm:p-3 text-left text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-16">Sıra</th>
+                <th className="p-2 sm:p-3 text-left text-xs sm:text-sm font-semibold border-b border-blue-400 w-28 sm:w-40">Takım</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-12">O</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-12">G</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-12">B</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-12">M</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-12">A</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-12">Y</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-12 sm:w-20">Averaj</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-16">Puan</th>
               </tr>
             </thead>
             <tbody>
@@ -93,7 +93,7 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
                     <td className="p-2 sm:p-3 text-xs sm:text-sm font-semibold text-gray-800">
                       <div className="flex items-center space-x-1 sm:space-x-2">
                         <TeamLogo teamName={team} size="sm" />
-                        <span className="text-gray-700 truncate max-w-16 sm:max-w-32">{team}</span>
+                        <span className="text-gray-700">{team}</span>
                       </div>
                     </td>
                     <td className="p-2 sm:p-3 text-center text-xs sm:text-sm text-gray-600 font-medium">
