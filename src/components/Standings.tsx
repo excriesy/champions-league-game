@@ -48,21 +48,21 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
       </div>
       
       {/* Puan tablosu */}
-      <div className="max-w-full p-2 sm:p-4 standings-container">
+      <div className="max-w-full p-2 sm:p-4 xl:p-6 standings-container">
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse min-w-[800px] text-xs sm:text-sm">
+          <table className="w-full border-collapse text-xs sm:text-sm xl:text-base">
             <thead>
               <tr className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-                <th className="p-2 sm:p-3 text-left text-xs sm:text-sm font-semibold border-b border-blue-400 w-12 sm:w-16">Sıra</th>
-                <th className="p-2 sm:p-3 text-left text-xs sm:text-sm font-semibold border-b border-blue-400 w-36 sm:w-48">Takım</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-12">O</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-12">G</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-12">B</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-12">M</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-12">A</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-12">Y</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-16 sm:w-20">Averaj</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-12 sm:w-16">Puan</th>
+                <th className="p-2 sm:p-3 xl:p-4 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-12 sm:w-16 xl:w-20">Sıra</th>
+                <th className="p-2 sm:p-3 xl:p-4 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-36 sm:w-48 xl:w-56">Takım</th>
+                <th className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-10 sm:w-12 xl:w-16">O</th>
+                <th className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-10 sm:w-12 xl:w-16">G</th>
+                <th className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-10 sm:w-12 xl:w-16">B</th>
+                <th className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-10 sm:w-12 xl:w-16">M</th>
+                <th className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-10 sm:w-12 xl:w-16">A</th>
+                <th className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-10 sm:w-12 xl:w-16">Y</th>
+                <th className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-16 sm:w-20 xl:w-24">Averaj</th>
+                <th className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-12 sm:w-16 xl:w-20">Puan</th>
               </tr>
             </thead>
             <tbody>
@@ -83,39 +83,39 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
                 return (
                   <tr 
                     key={index} 
-                    className={`border-b transition-all duration-200 hover:bg-gray-50 ${rowColor}`}
+                    className={`border-b transition-all duration-300 hover:bg-gray-50 hover:shadow-md hover:scale-[1.01] ${rowColor}`}
                   >
-                    <td className="p-2 sm:p-3 text-xs sm:text-sm font-bold">
-                      <span className="inline-flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-300 text-gray-700">
+                    <td className="p-2 sm:p-3 xl:p-4 text-xs sm:text-sm xl:text-base font-bold">
+                      <span className="inline-flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 xl:w-10 xl:h-10 rounded-full bg-gray-300 text-gray-700">
                         {index + 1}
                       </span>
                     </td>
-                    <td className="p-2 sm:p-3 text-xs sm:text-sm font-semibold text-gray-800">
-                      <div className="flex items-center space-x-1 sm:space-x-2">
+                    <td className="p-2 sm:p-3 xl:p-4 text-xs sm:text-sm xl:text-base font-semibold text-gray-800">
+                      <div className="flex items-center space-x-1 sm:space-x-2 xl:space-x-3">
                         <TeamLogo teamName={team} size="sm" />
                         <span className="text-gray-700">{team}</span>
                       </div>
                     </td>
-                    <td className="p-2 sm:p-3 text-center text-xs sm:text-sm text-gray-600 font-medium">
+                    <td className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
                       {stats.played}
                     </td>
-                    <td className="p-2 sm:p-3 text-center text-xs sm:text-sm text-gray-600 font-medium">
+                    <td className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
                       {stats.wins}
                     </td>
-                    <td className="p-2 sm:p-3 text-center text-xs sm:text-sm text-gray-600 font-medium">
+                    <td className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
                       {stats.draws}
                     </td>
-                    <td className="p-2 sm:p-3 text-center text-xs sm:text-sm text-gray-600 font-medium">
+                    <td className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
                       {stats.losses}
                     </td>
-                    <td className="p-2 sm:p-3 text-center text-xs sm:text-sm text-gray-600 font-medium">
+                    <td className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
                       {stats.goalsFor}
                     </td>
-                    <td className="p-2 sm:p-3 text-center text-xs sm:text-sm text-gray-600 font-medium">
+                    <td className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
                       {stats.goalsAgainst}
                     </td>
-                    <td className="p-2 sm:p-3 text-center text-xs sm:text-sm font-bold">
-                      <span className={`px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm ${
+                    <td className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-bold">
+                      <span className={`px-2 py-1 sm:px-3 sm:py-1 xl:px-4 xl:py-2 rounded-full text-xs sm:text-sm xl:text-base ${
                         goalDifference > 0 
                           ? 'bg-green-100 text-green-800' 
                           : goalDifference < 0 
@@ -125,8 +125,8 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
                         {goalDiffText}
                       </span>
                     </td>
-                    <td className="p-2 sm:p-3 text-center text-xs sm:text-sm font-bold">
-                      <span className="px-2 py-1 sm:px-3 sm:py-1 rounded-full bg-gray-100 text-gray-800">
+                    <td className="p-2 sm:p-3 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-bold">
+                      <span className="px-2 py-1 sm:px-3 sm:py-1 xl:px-4 xl:py-2 rounded-full bg-gray-100 text-gray-800">
                         {stats.points}
                       </span>
                     </td>

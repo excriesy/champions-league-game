@@ -29,8 +29,6 @@ body {
   max-width: 1600px;
 }
 
-
-
 /* Flexbox layout ayarları */
 .flex-1 {
   flex: 1 1 0%;
@@ -46,7 +44,79 @@ body {
   width: 680px;
 }
 
-/* Responsive tasarım */
+/* Responsive tasarım - PC için optimize edilmiş */
+@media (min-width: 1280px) {
+  .xl\:flex-row {
+    flex-direction: row;
+  }
+  
+  .xl\:w-96 {
+    width: 24rem;
+  }
+  
+  .xl\:sticky {
+    position: sticky;
+  }
+  
+  /* PC için daha büyük padding ve margin */
+  .xl\:p-8 {
+    padding: 2rem;
+  }
+  
+  .xl\:py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .xl\:gap-8 {
+    gap: 2rem;
+  }
+  
+  /* PC için daha büyük font boyutları */
+  .xl\:text-4xl {
+    font-size: 2.25rem;
+  }
+  
+  .xl\:text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  .xl\:text-lg {
+    font-size: 1.125rem;
+  }
+  
+  /* PC için daha büyük butonlar */
+  .xl\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .xl\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  /* PC için daha büyük header */
+  .xl\:p-8 {
+    padding: 2rem;
+  }
+  
+  .xl\:rounded-b-4xl {
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+  }
+  
+  /* PC için logo boyutları */
+  .xl\:w-16 {
+    width: 4rem;
+  }
+  
+  .xl\:h-16 {
+    height: 4rem;
+  }
+}
+
+/* Mobil için responsive tasarım */
 @media (max-width: 1279px) {
   .xl\:flex-row {
     flex-direction: column;
@@ -66,7 +136,7 @@ body {
   gap: 1.5rem;
 }
 
-/* Tablo genişlik ve padding ayarları */
+/* Tablo genişlik ve padding ayarları - Scroll sorunu çözüldü */
 .max-w-full {
   max-width: 100%;
 }
@@ -76,12 +146,11 @@ body {
 }
 
 .max-w-full table {
-  min-width: 0;
-  table-layout: fixed;
   width: 100%;
+  table-layout: auto;
 }
 
-/* Tablo sütun genişlikleri */
+/* Tablo sütun genişlikleri - Responsive */
 .max-w-full th.w-12 {
   width: 3rem;
 }
@@ -106,6 +175,35 @@ body {
   width: 5rem;
 }
 
+/* Tablo scroll düzeltmeleri */
+.standings-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.standings-container table {
+  min-width: 600px;
+}
+
+@media (min-width: 640px) {
+  .standings-container table {
+    min-width: 700px;
+  }
+}
+
+@media (min-width: 768px) {
+  .standings-container table {
+    min-width: 800px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .standings-container table {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
 /* Scroll bar gizleme */
 * {
   scrollbar-width: none; /* Firefox */
@@ -116,9 +214,24 @@ body {
   display: none; /* Chrome, Safari and Opera */
 }
 
-/* Hover efektleri */
+/* Hover efektleri - PC için geliştirilmiş */
 .hover\:shadow-md:hover {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* PC için daha gelişmiş hover efektleri */
+@media (min-width: 1280px) {
+  .hover\:shadow-lg:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+  
+  .hover\:translate-y-[-4px]:hover {
+    transform: translateY(-4px);
+  }
 }
 
 /* Geçiş animasyonları */
@@ -130,10 +243,25 @@ body {
   transition: box-shadow 0.2s ease-in-out;
 }
 
+/* PC için daha yumuşak geçişler */
+@media (min-width: 1280px) {
+  .transition-all {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
 /* Takım isimleri için özel stiller */
 .team-name {
   font-weight: 600;
   color: #1f2937;
+}
+
+/* PC için daha büyük takım isimleri */
+@media (min-width: 1280px) {
+  .team-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
 }
 
 /* Skor input alanları için özel stiller */
@@ -142,12 +270,33 @@ body {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
+/* PC için daha büyük input alanları */
+@media (min-width: 1280px) {
+  .score-input:focus {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  }
+}
+
 /* Puan tablosu için özel stiller */
 .standings-table th {
   position: sticky;
   top: 0;
   background: #f8fafc;
   z-index: 10;
+}
+
+/* PC için daha büyük tablo başlıkları */
+@media (min-width: 1280px) {
+  .standings-table th {
+    font-size: 1.125rem;
+    padding: 1rem 0.75rem;
+  }
+  
+  .standings-table td {
+    padding: 0.875rem 0.75rem;
+    font-size: 1rem;
+  }
 }
 
 /* Maç kartları için özel stiller */
@@ -159,6 +308,19 @@ body {
 .match-card:hover {
   background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
   transform: translateY(-2px);
+}
+
+/* PC için daha gelişmiş maç kartları */
+@media (min-width: 1280px) {
+  .match-card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+  
+  .match-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
 }
 
 /* Buton stilleri */
@@ -183,4 +345,89 @@ body {
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
+}
+
+/* PC için daha büyük butonlar */
+@media (min-width: 1280px) {
+  .btn-primary {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+    border-radius: 0.75rem;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+  }
+}
+
+/* Header için özel PC stilleri */
+@media (min-width: 1280px) {
+  .header-gradient {
+    background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #1e40af 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+}
+
+/* PC için daha iyi spacing */
+@media (min-width: 1280px) {
+  .xl\:space-y-8 > * + * {
+    margin-top: 2rem;
+  }
+  
+  .xl\:space-x-8 > * + * {
+    margin-left: 2rem;
+  }
+}
+
+/* PC için daha iyi border radius */
+@media (min-width: 1280px) {
+  .xl\:rounded-3xl {
+    border-radius: 1.5rem;
+  }
+  
+  .xl\:rounded-2xl {
+    border-radius: 1rem;
+  }
+}
+
+/* PC için daha iyi shadow */
+@media (min-width: 1280px) {
+  .xl\:shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* Mobil puan tablosu toggle butonu */
+.standings-toggle {
+  background: linear-gradient(135deg, #3b82f6 0%, #7c3aed 100%);
+  transition: all 0.3s ease;
+}
+
+.standings-toggle:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #6d28d9 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Mobil puan tablosu açılma animasyonu */
+.standings-content {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

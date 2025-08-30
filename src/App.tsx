@@ -43,6 +43,7 @@ export default function App() {
   const [matchdays, setMatchdays] = useState(fixtureData);
   const [currentWeek, setCurrentWeek] = useState(0);
   const [standings, setStandings] = useState<[string, TeamStats][]>([]);
+  const [showStandings, setShowStandings] = useState(false); // Mobil puan tablosu durumu
 
   // Sayfa yüklendiğinde localStorage'dan veri al
   useEffect(() => {
@@ -188,55 +189,55 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white p-6 rounded-b-3xl shadow-lg">
-        <div className="flex items-center justify-center space-x-4">
-          <img src="/logo/ucl.png" alt="UCL Logo" className="w-12 h-12" />
-          <h1 className="text-3xl font-bold text-center">
+      <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white p-6 xl:p-8 rounded-b-3xl xl:rounded-b-4xl shadow-lg xl:shadow-2xl">
+        <div className="flex items-center justify-center space-x-4 xl:space-x-8">
+          <img src="/logo/ucl.png" alt="UCL Logo" className="w-12 h-12 xl:w-16 xl:h-16" />
+          <h1 className="text-3xl xl:text-4xl font-bold text-center">
             Şampiyonlar Ligi Skor Tahmini 
           </h1>
-          <img src="/logo/ucl.png" alt="UCL Logo" className="w-12 h-12" />
+          <img src="/logo/ucl.png" alt="UCL Logo" className="w-12 h-12 xl:w-16 xl:h-16" />
         </div>
       </div>
 
       {/* Ana içerik */}
-      <div className="w-full max-w-[1600px] mx-auto px-4 py-8">
-        <div className="flex flex-col xl:flex-row gap-6">
+      <div className="w-full max-w-[1600px] mx-auto px-4 xl:px-8 py-8 xl:py-12">
+        <div className="flex flex-col xl:flex-row gap-6 xl:gap-8">
           {/* Sol panel - Maç programı */}
           <div className="flex-1 min-w-0 xl:mr-4">
-            <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-200">
+            <div className="bg-white rounded-2xl xl:rounded-3xl shadow-xl xl:shadow-2xl p-6 xl:p-8 border border-gray-200">
               {/* Hafta navigasyonu */}
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center justify-between mb-6 xl:mb-8">
                 <button
                   onClick={() => setCurrentWeek(Math.max(0, currentWeek - 1))}
                   disabled={currentWeek === 0}
-                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200"
+                  className="px-4 xl:px-6 py-2 xl:py-3 bg-blue-500 text-white rounded-lg xl:rounded-xl hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-200 text-sm xl:text-base font-semibold hover:shadow-lg hover:scale-105 hover:-translate-y-1"
                 >
                   ← Önceki Hafta
                 </button>
                 
                 <div className="text-center">
-                  <h2 className="text-2xl font-bold text-gray-800">{matchdays[currentWeek].title}</h2>
-                  <p className="text-gray-600">{matchdays[currentWeek].week}. Hafta</p>
+                  <h2 className="text-2xl xl:text-3xl font-bold text-gray-800">{matchdays[currentWeek].title}</h2>
+                  <p className="text-gray-600 xl:text-lg">{matchdays[currentWeek].week}. Hafta</p>
                 </div>
                 
                 <button
                   onClick={() => setCurrentWeek(Math.min(matchdays.length - 1, currentWeek + 1))}
                   disabled={currentWeek === matchdays.length - 1}
-                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200"
+                  className="px-4 xl:px-6 py-2 xl:py-3 bg-blue-500 text-white rounded-lg xl:rounded-xl hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all duration-200 text-sm xl:text-base font-semibold hover:shadow-lg hover:scale-105 hover:-translate-y-1"
                 >
                   Sonraki Hafta →
-        </button>
+                </button>
               </div>
               
               {/* Hafta göstergeleri */}
-              <div className="flex justify-center space-x-2 mb-6">
+              <div className="flex justify-center space-x-2 xl:space-x-3 mb-6 xl:mb-8">
                 {matchdays.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentWeek(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                    className={`w-3 h-3 xl:w-4 xl:h-4 rounded-full transition-all duration-200 hover:scale-125 ${
                       index === currentWeek 
-                        ? 'bg-blue-500 scale-125' 
+                        ? 'bg-blue-500 scale-125 xl:scale-150' 
                         : 'bg-gray-300 hover:bg-gray-400'
                     }`}
                   />
@@ -252,14 +253,43 @@ export default function App() {
             </div>
           </div>
           
-          {/* Sağ panel - Puan tablosu */}
-          <div className="xl:w-[680px] flex-shrink-0">
-            <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 xl:sticky xl:top-8">
+          {/* Sağ panel - Puan tablosu (Sadece PC'de görünür) */}
+          <div className="hidden xl:block xl:w-[680px] flex-shrink-0">
+            <div className="bg-white rounded-2xl xl:rounded-3xl shadow-xl xl:shadow-2xl p-6 xl:p-8 border border-gray-200 xl:sticky xl:top-8">
               <Standings 
                 standings={standings} 
                 onResetAll={resetData}
               />
             </div>
+          </div>
+        </div>
+
+        {/* Mobil Puan Tablosu - En altta açılır/kapanır */}
+        <div className="xl:hidden mt-8">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-200">
+            {/* Puan Tablosu Toggle Butonu */}
+            <button
+              onClick={() => setShowStandings(!showStandings)}
+              className="standings-toggle w-full text-white p-4 rounded-t-2xl flex items-center justify-between transition-all duration-300"
+            >
+              <div className="flex items-center space-x-3">
+                <img src="/logo/ucl.png" alt="UCL Logo" className="w-8 h-8" />
+                <span className="text-xl font-bold">Puan Tablosu</span>
+              </div>
+              <div className={`transform transition-transform duration-300 ${showStandings ? 'rotate-180' : ''}`}>
+                ▼
+              </div>
+            </button>
+            
+            {/* Açılır/Kapanır Puan Tablosu */}
+            {showStandings && (
+              <div className="standings-content p-4 border-t border-gray-200">
+                <Standings 
+                  standings={standings} 
+                  onResetAll={resetData}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
