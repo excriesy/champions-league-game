@@ -182,18 +182,18 @@ body {
 }
 
 .standings-container table {
-  min-width: 600px;
+  min-width: 500px;
 }
 
 @media (min-width: 640px) {
   .standings-container table {
-    min-width: 700px;
+    min-width: 600px;
   }
 }
 
 @media (min-width: 768px) {
   .standings-container table {
-    min-width: 800px;
+    min-width: 700px;
   }
 }
 

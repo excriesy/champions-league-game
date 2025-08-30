@@ -95,61 +95,72 @@ export default function Matchday({ matchday, weekIndex, updateScore, onResetWeek
               </div>
             </button>
             
-            {/* Maçlar - responsive tasarım */}
+            {/* Maçlar - Grid layout ile 2 sütun */}
             {!collapsedDates.has(dateGroupIndex) && (
-              <div className="space-y-2 sm:space-y-4 xl:space-y-6 pl-2 sm:pl-4 xl:pl-6">
-                {dateGroup.matches.map((match, matchIndex) => (
-                  <div key={matchIndex} className="bg-gradient-to-r from-gray-50 to-white rounded-xl xl:rounded-2xl p-2 sm:p-4 xl:p-10 border border-gray-200 hover:shadow-lg xl:hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] xl:hover:scale-[1.01] hover:-translate-y-1 xl:hover:-translate-y-2">
-                    <div className="flex flex-col sm:flex-row items-center justify-between min-w-0 space-y-2 sm:space-y-4 xl:space-y-0">
-                      {/* Ev sahibi takım */}
-                      <div className="flex-1 text-center sm:text-right sm:pr-4 xl:pr-12 min-w-0 w-full sm:w-auto">
-                        <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-2 xl:space-y-0 sm:space-x-2 xl:space-x-6">
-                          <TeamLogo teamName={match.home} size="sm" />
-                          <span className="font-bold text-gray-800 text-xs sm:text-base xl:text-xl whitespace-nowrap">{match.home}</span>
+              <div className="pl-2 sm:pl-4 xl:pl-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 xl:gap-4">
+                  {dateGroup.matches.map((match, matchIndex) => (
+                    <div key={matchIndex} className="bg-gradient-to-r from-gray-50 to-white rounded-xl xl:rounded-2xl p-2 sm:p-3 xl:p-4 border border-gray-200 hover:shadow-lg xl:hover:shadow-xl transition-all duration-300 hover:scale-[1.02] xl:hover:scale-[1.01] hover:-translate-y-1">
+                      {/* Maç zamanı - üstte */}
+                      <div className="text-center mb-2 sm:mb-3">
+                        <div className="inline-flex items-center space-x-1 bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                          <span className="text-xs font-medium">🕐 {match.time}</span>
+                        </div>
+                      </div>
+
+                      {/* Takım ve skor layout - kompakt */}
+                      <div className="space-y-2 sm:space-y-3">
+                        {/* Ev sahibi takım */}
+                        <div className="flex items-center justify-between bg-gray-50 rounded-lg p-2 sm:p-3">
+                          <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
+                            <TeamLogo teamName={match.home} size="sm" />
+                            <span className="font-semibold text-gray-800 text-xs sm:text-sm xl:text-base truncate">{match.home}</span>
+                          </div>
+                          <div className="flex-shrink-0 ml-2">
+                            <ScoreInput 
+                              value={match.homeScore} 
+                              onChange={(e) => updateScore(weekIndex, dateGroupIndex, matchIndex, "homeScore", e.target.value)} 
+                            />
+                          </div>
+                        </div>
+
+                        {/* VS göstergesi - sadece desktop'ta */}
+                        <div className="hidden sm:block text-center">
+                          <div className="inline-flex items-center space-x-2 bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
+                            <span className="text-xs font-medium">VS</span>
+                          </div>
+                        </div>
+
+                        {/* Deplasman takımı */}
+                        <div className="flex items-center justify-between bg-gray-50 rounded-lg p-2 sm:p-3">
+                          <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
+                            <TeamLogo teamName={match.away} size="sm" />
+                            <span className="font-semibold text-gray-800 text-xs sm:text-sm xl:text-base truncate">{match.away}</span>
+                          </div>
+                          <div className="flex-shrink-0 ml-2">
+                            <ScoreInput 
+                              value={match.awayScore} 
+                              onChange={(e) => updateScore(weekIndex, dateGroupIndex, matchIndex, "awayScore", e.target.value)} 
+                            />
+                          </div>
                         </div>
                       </div>
                       
-                      {/* Skor girişi */}
-                      <div className="flex items-center space-x-2 sm:space-x-4 xl:space-x-6 bg-white px-2 sm:px-4 xl:px-10 py-2 sm:py-4 xl:py-8 rounded-xl xl:rounded-2xl border-2 border-gray-200 shadow-sm xl:shadow-md mx-1 sm:mx-4 xl:mx-8 flex-shrink-0">
-                        <ScoreInput 
-                          value={match.homeScore} 
-                          onChange={(e) => updateScore(weekIndex, dateGroupIndex, matchIndex, "homeScore", e.target.value)} 
-                        />
-                        <div className="text-center">
-                          <span className="text-lg sm:text-xl xl:text-3xl font-bold text-gray-400">-</span>
-                          <div className="text-xs sm:text-sm xl:text-base text-gray-500 mt-1 sm:mt-2 xl:mt-3">VS</div>
-                          <div className="text-xs sm:text-sm xl:text-base text-blue-600 font-medium">{match.time}</div>
-                        </div>
-                        <ScoreInput 
-                          value={match.awayScore} 
-                          onChange={(e) => updateScore(weekIndex, dateGroupIndex, matchIndex, "awayScore", e.target.value)} 
-                        />
-                      </div>
-                      
-                      {/* Deplasman takımı */}
-                      <div className="flex-1 text-center sm:text-left sm:pl-4 xl:pl-12 min-w-0 w-full sm:w-auto">
-                        <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-2 xl:space-y-0 sm:space-x-2 xl:space-x-6">
-                          <span className="font-bold text-gray-800 text-xs sm:text-base xl:text-xl whitespace-nowrap">{match.away}</span>
-                          <TeamLogo teamName={match.away} size="sm" />
-                        </div>
+                      {/* Tahmin durumu - kompakt */}
+                      <div className="mt-2 sm:mt-3 text-center">
+                        {match.homeScore !== null && match.awayScore !== null ? (
+                          <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-2 py-1 rounded-full">
+                            <span className="text-xs">✅ {match.homeScore} - {match.awayScore}</span>
+                          </div>
+                        ) : (
+                          <div className="inline-flex items-center space-x-2 bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
+                            <span className="text-xs">⏳ Bekleniyor</span>
+                          </div>
+                        )}
                       </div>
                     </div>
-                    
-                    {/* Tahmin durumu */}
-                    <div className="mt-2 sm:mt-4 xl:mt-6 text-center">
-                      {match.homeScore !== null && match.awayScore !== null ? (
-                        <div className="inline-flex items-center space-x-1 sm:space-x-2 xl:space-x-3 bg-green-100 text-green-800 px-2 sm:px-4 xl:px-6 py-1 sm:py-2 xl:py-3 rounded-full xl:rounded-xl">
-                          <span className="text-xs sm:text-sm xl:text-base">✅ Tahmin Tamamlandı</span>
-                          <span className="text-xs xl:text-sm font-medium">{match.homeScore} - {match.awayScore}</span>
-                        </div>
-                      ) : (
-                        <div className="inline-flex items-center space-x-1 sm:space-x-2 xl:space-x-3 bg-yellow-100 text-yellow-800 px-2 sm:px-4 xl:px-6 py-1 sm:py-2 xl:py-3 rounded-full xl:rounded-xl">
-                          <span className="text-xs sm:text-sm xl:text-base">⏳ Tahmin Bekleniyor</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             )}
           </div>
