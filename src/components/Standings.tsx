@@ -53,16 +53,16 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
           <table className="w-full border-collapse text-xs sm:text-sm xl:text-base">
             <thead>
               <tr className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-                <th className="p-0.5 sm:p-1 xl:p-4 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-6 sm:w-8 xl:w-16">Sıra</th>
-                <th className="p-0.5 sm:p-1 xl:p-4 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-20 sm:w-28 xl:w-48">Takım</th>
-                <th className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">O</th>
-                <th className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">G</th>
-                <th className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">B</th>
-                <th className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">M</th>
-                <th className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">A</th>
-                <th className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">Y</th>
-                <th className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-6 sm:w-8 xl:w-16">Averaj</th>
-                <th className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-5 sm:w-6 xl:w-14">Puan</th>
+                <th className="p-0.5 sm:p-1 xl:p-2 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-6 sm:w-8 xl:w-12">Sıra</th>
+                <th className="p-0.5 sm:p-1 xl:p-2 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-20 sm:w-28 xl:w-auto">Takım</th>
+                <th className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-10">O</th>
+                <th className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-10">G</th>
+                <th className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-10">B</th>
+                <th className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-10">M</th>
+                <th className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-10">A</th>
+                <th className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-10">Y</th>
+                <th className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-6 sm:w-8 xl:w-14">Averaj</th>
+                <th className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-5 sm:w-6 xl:w-12">Puan</th>
               </tr>
             </thead>
             <tbody>
@@ -85,51 +85,51 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
                     key={index} 
                     className={`border-b ${rowColor}`}
                   >
-                    <td className="p-0.5 sm:p-1 xl:p-4 text-xs sm:text-sm xl:text-base font-bold">
-                      <span className="inline-flex items-center justify-center w-3 h-3 sm:w-4 sm:h-4 xl:w-8 xl:h-8 rounded-full bg-gray-300 text-gray-700">
-                        {index + 1}
-                      </span>
-                    </td>
-                    <td className="p-0.5 sm:p-1 xl:p-4 text-xs sm:text-sm xl:text-base font-semibold text-gray-800">
-                      <div className="flex items-center space-x-1 sm:space-x-2 xl:space-x-3">
-                        <TeamLogo teamName={team} size="sm" />
-                        <span className="text-gray-700 truncate">{team}</span>
-                      </div>
-                    </td>
-                    <td className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
-                      {stats.played}
-                    </td>
-                    <td className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
-                      {stats.wins}
-                    </td>
-                    <td className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
-                      {stats.draws}
-                    </td>
-                    <td className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
-                      {stats.losses}
-                    </td>
-                    <td className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
-                      {stats.goalsFor}
-                    </td>
-                    <td className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
-                      {stats.goalsAgainst}
-                    </td>
-                    <td className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-bold">
-                      <span className={`px-0.5 py-0 sm:px-1 sm:py-0.5 xl:px-2 xl:py-1 rounded text-xs sm:text-sm xl:text-base ${
-                        goalDifference > 0 
-                          ? 'bg-green-100 text-green-800' 
-                          : goalDifference < 0 
-                            ? 'bg-red-100 text-red-800'
-                            : 'bg-gray-100 text-gray-800'
-                      }`}>
-                        {goalDiffText}
-                      </span>
-                    </td>
-                    <td className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-bold">
-                      <span className="px-0.5 py-0 sm:px-1 sm:py-0.5 xl:px-2 xl:py-1 rounded bg-gray-100 text-gray-800">
-                        {stats.points}
-                      </span>
-                    </td>
+                                         <td className="p-0.5 sm:p-1 xl:p-2 text-xs sm:text-sm xl:text-base font-bold">
+                       <span className="inline-flex items-center justify-center w-3 h-3 sm:w-4 sm:h-4 xl:w-6 xl:h-6 rounded-full bg-gray-300 text-gray-700">
+                         {index + 1}
+                       </span>
+                     </td>
+                                         <td className="p-0.5 sm:p-1 xl:p-2 text-xs sm:text-sm xl:text-base font-semibold text-gray-800">
+                       <div className="flex items-center space-x-1 sm:space-x-2 xl:space-x-2">
+                         <TeamLogo teamName={team} size="sm" />
+                         <span className="text-gray-700 truncate">{team}</span>
+                       </div>
+                     </td>
+                                         <td className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
+                       {stats.played}
+                     </td>
+                     <td className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
+                       {stats.wins}
+                     </td>
+                     <td className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
+                       {stats.draws}
+                     </td>
+                     <td className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
+                       {stats.losses}
+                     </td>
+                     <td className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
+                       {stats.goalsFor}
+                     </td>
+                     <td className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base text-gray-600 font-medium">
+                       {stats.goalsAgainst}
+                     </td>
+                                         <td className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base font-bold">
+                       <span className={`px-0.5 py-0 sm:px-1 sm:py-0.5 xl:px-1 xl:py-0.5 rounded text-xs sm:text-sm xl:text-base ${
+                         goalDifference > 0 
+                           ? 'bg-green-100 text-green-800' 
+                           : goalDifference < 0 
+                             ? 'bg-red-100 text-red-800'
+                             : 'bg-gray-100 text-gray-800'
+                       }`}>
+                         {goalDiffText}
+                       </span>
+                     </td>
+                     <td className="p-0.5 sm:p-1 xl:p-2 text-center text-xs sm:text-sm xl:text-base font-bold">
+                       <span className="px-0.5 py-0 sm:px-1 sm:py-0.5 xl:px-1 xl:py-0.5 rounded bg-gray-100 text-gray-800">
+                         {stats.points}
+                       </span>
+                     </td>
                   </tr>
                 );
               })}

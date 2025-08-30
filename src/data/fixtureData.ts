@@ -2,7 +2,7 @@
 export const fixtureData = [
   {
     week: 1,
-    title: "Maç Günü #1",
+    title: "Grup Aşaması",
     dateGroups: [
       {
         date: "Tuesday 16 September 2025",
@@ -41,7 +41,7 @@ export const fixtureData = [
   },
   {
     week: 2,
-    title: "Maç Günü #2",
+    title: "Grup Aşaması",
     dateGroups: [
       {
         date: "Tuesday 30 September 2025",
@@ -75,7 +75,7 @@ export const fixtureData = [
   },
   {
     week: 3,
-    title: "Maç Günü #3",
+    title: "Grup Aşaması",
     dateGroups: [
       {
         date: "Tuesday 21 October 2025",
@@ -109,7 +109,7 @@ export const fixtureData = [
   },
   {
     week: 4,
-    title: "Maç Günü #4",
+    title: "Grup Aşaması",
     dateGroups: [
       {
         date: "Tuesday 4 November 2025",
@@ -143,7 +143,7 @@ export const fixtureData = [
   },
   {
     week: 5,
-    title: "Maç Günü #5",
+    title: "Grup Aşaması",
     dateGroups: [
       {
         date: "Tuesday 25 November 2025",
@@ -177,7 +177,7 @@ export const fixtureData = [
   },
   {
     week: 6,
-    title: "Maç Günü #6",
+    title: "Grup Aşaması",
     dateGroups: [
       {
         date: "Tuesday 9 December 2025",
@@ -211,7 +211,7 @@ export const fixtureData = [
   },
   {
     week: 7,
-    title: "Maç Günü #7",
+    title: "Son 16 Turu",
     dateGroups: [
       {
         date: "Tuesday 20 January 2026",
@@ -245,7 +245,7 @@ export const fixtureData = [
   },
   {
     week: 8,
-    title: "Maç Günü #8",
+    title: "Son 16 Turu",
     dateGroups: [
       {
         date: "Wednesday 28 January 2026",

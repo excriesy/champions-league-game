@@ -175,14 +175,14 @@ body {
   width: 5rem;
 }
 
-/* Tablo sabit düzen - Scroll yok */
+/* Tablo düzen - Takım sütunu esnek */
 .standings-container {
   width: 100%;
 }
 
 .standings-container table {
   width: 100%;
-  table-layout: fixed;
+  table-layout: auto;
 }
 
 /* Scroll bar gizleme */
@@ -476,17 +476,55 @@ body {
 /* Mobilde puan tablosu için özel optimizasyonlar */
 @media (max-width: 768px) {
   .standings-container table {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
   
   .standings-container table td,
   .standings-container table th {
-    padding: 0.2rem 0.3rem;
+    padding: 0.15rem 0.2rem;
   }
   
   /* Mobilde takım logoları daha küçük */
   .standings-container table img {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Mobilde maç kartları için grid düzeni */
+  .mobile-match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem;
+  }
+  
+  /* Mobilde maç kartları daha kompakt */
+  .mobile-match-card {
+    padding: 0.25rem;
+    margin: 0;
+    font-size: 0.7rem;
+  }
+}
+
+/* PC'de de mobildeki gibi kompakt görünüm */
+@media (min-width: 1280px) {
+  /* PC'de maç kartları için grid düzeni */
+  .mobile-match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  /* PC'de maç kartları daha kompakt */
+  .mobile-match-card {
+    padding: 0.5rem;
+    margin: 0;
+    font-size: 0.8rem;
+  }
+  
+  /* PC'de puan tablosu sayısal sütunları için kompakt padding */
+  .standings-container table th:not(:nth-child(2)),
+  .standings-container table td:not(:nth-child(2)) {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
   }
 }

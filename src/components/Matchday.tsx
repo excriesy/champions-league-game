@@ -41,14 +41,12 @@ export default function Matchday({ matchday, weekIndex, updateScore, onResetWeek
     const date = new Date(dateString);
     const day = date.getDate();
     const month = date.toLocaleString('tr-TR', { month: 'short' });
+    const year = date.getFullYear();
     const dayOfWeek = date.toLocaleString('tr-TR', { weekday: 'short' });
-    return `${dayOfWeek} ${day} ${month}`;
+    return `${dayOfWeek} ${day} ${month} ${year}`;
   };
 
-  const getDayName = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleString('tr-TR', { weekday: 'long' });
-  };
+
 
   return (
     <div className="space-y-3 sm:space-y-6 xl:space-y-8">
@@ -87,16 +85,15 @@ export default function Matchday({ matchday, weekIndex, updateScore, onResetWeek
                     : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50 hover:border-blue-300 hover:shadow-md'
                 }`}
               >
-                <div className="text-center">
-                  <div className="font-bold mb-1">{dateGroupIndex + 1}. Gün</div>
-                  <div className="text-xs opacity-80">{formatTurkishDate(dateGroup.date)}</div>
-                  <div className="mt-1 text-xs">
-                    {dayCompletedMatches}/{dayTotalMatches} maç
-                  </div>
-                  {dayCompletedMatches === dayTotalMatches && dayTotalMatches > 0 && (
-                    <div className="mt-1 text-xs">✅ Tamamlandı</div>
-                  )}
-                </div>
+                                 <div className="text-center">
+                   <div className="font-bold mb-1">{formatTurkishDate(dateGroup.date)}</div>
+                   <div className="mt-1 text-xs">
+                     {dayCompletedMatches}/{dayTotalMatches} maç
+                   </div>
+                   {dayCompletedMatches === dayTotalMatches && dayTotalMatches > 0 && (
+                     <div className="mt-1 text-xs">✅ Tamamlandı</div>
+                   )}
+                 </div>
               </button>
             );
           })}
@@ -107,10 +104,10 @@ export default function Matchday({ matchday, weekIndex, updateScore, onResetWeek
       {selectedDateGroup !== null && (
         <div className="space-y-2 sm:space-y-3 xl:space-y-4">
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl xl:rounded-2xl p-2 sm:p-4 xl:p-6 border border-blue-200">
-            <div className="flex items-center justify-between mb-2 sm:mb-3 xl:mb-4">
-              <h4 className="font-semibold text-blue-800 text-sm sm:text-lg xl:text-xl">
-                {formatTurkishDate(matchday.dateGroups[selectedDateGroup].date)}
-              </h4>
+                         <div className="flex items-center justify-between mb-2 sm:mb-3 xl:mb-4">
+               <h4 className="font-semibold text-blue-800 text-sm sm:text-lg xl:text-xl">
+                 Maç Günü #{selectedDateGroup + 1} - {formatTurkishDate(matchday.dateGroups[selectedDateGroup].date)}
+               </h4>
               <button
                 onClick={() => setSelectedDateGroup(null)}
                 className="text-blue-600 hover:text-blue-800 text-sm sm:text-base xl:text-lg"
@@ -119,67 +116,67 @@ export default function Matchday({ matchday, weekIndex, updateScore, onResetWeek
               </button>
             </div>
             
-            {/* Maçlar - Grid layout ile 2 sütun (mobilde de) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 xl:gap-4">
+                         {/* Maçlar - Grid layout ile 2 sütun (mobilde de) */}
+             <div className="grid grid-cols-2 gap-1 sm:gap-2 xl:gap-3 mobile-match-grid">
               {matchday.dateGroups[selectedDateGroup].matches.map((match, matchIndex) => (
-                <div key={matchIndex} className="bg-gradient-to-r from-gray-50 to-white rounded-xl xl:rounded-2xl p-2 sm:p-3 xl:p-4 border border-gray-200 hover:shadow-lg xl:hover:shadow-xl transition-all duration-300 hover:scale-[1.02] xl:hover:scale-[1.01] hover:-translate-y-1">
-                  {/* Maç zamanı - üstte */}
-                  <div className="text-center mb-2 sm:mb-3">
-                    <div className="inline-flex items-center space-x-1 bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
-                      <span className="text-xs font-medium">🕐 {match.time}</span>
-                    </div>
-                  </div>
+                                 <div key={matchIndex} className="bg-gradient-to-r from-gray-50 to-white rounded-lg xl:rounded-2xl p-1 sm:p-2 xl:p-2 border border-gray-200 hover:shadow-lg xl:hover:shadow-xl transition-all duration-300 hover:scale-[1.02] xl:hover:scale-[1.01] hover:-translate-y-1 mobile-match-card">
+                                     {/* Maç zamanı - üstte */}
+                   <div className="text-center mb-1 sm:mb-2 xl:mb-2">
+                     <div className="inline-flex items-center space-x-1 bg-blue-100 text-blue-800 px-1 py-0.5 sm:px-2 sm:py-1 rounded-full">
+                       <span className="text-xs font-medium">🕐 {match.time}</span>
+                     </div>
+                   </div>
 
-                  {/* Takım ve skor layout - kompakt */}
-                  <div className="space-y-2 sm:space-y-3">
-                    {/* Ev sahibi takım */}
-                    <div className="flex items-center justify-between bg-gray-50 rounded-lg p-2 sm:p-3">
-                      <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
-                        <TeamLogo teamName={match.home} size="sm" />
-                        <span className="font-semibold text-gray-800 text-xs sm:text-sm xl:text-base truncate">{match.home}</span>
-                      </div>
-                      <div className="flex-shrink-0 ml-2">
-                        <ScoreInput 
-                          value={match.homeScore} 
-                          onChange={(e) => updateScore(weekIndex, selectedDateGroup, matchIndex, "homeScore", e.target.value)} 
-                        />
-                      </div>
-                    </div>
+                                     {/* Takım ve skor layout - kompakt */}
+                   <div className="space-y-1 sm:space-y-2 xl:space-y-2">
+                     {/* Ev sahibi takım */}
+                     <div className="flex items-center justify-between bg-gray-50 rounded-lg p-1 sm:p-2 xl:p-2">
+                       <div className="flex items-center space-x-1 sm:space-x-2 xl:space-x-3 flex-1 min-w-0">
+                         <TeamLogo teamName={match.home} size="sm" />
+                         <span className="font-semibold text-gray-800 text-xs sm:text-sm xl:text-base truncate">{match.home}</span>
+                       </div>
+                       <div className="flex-shrink-0 ml-1 sm:ml-2">
+                         <ScoreInput 
+                           value={match.homeScore} 
+                           onChange={(e) => updateScore(weekIndex, selectedDateGroup, matchIndex, "homeScore", e.target.value)} 
+                         />
+                       </div>
+                     </div>
 
-                    {/* VS göstergesi - her ekranda */}
-                    <div className="text-center">
-                      <div className="inline-flex items-center space-x-2 bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
-                        <span className="text-xs font-medium">VS</span>
-                      </div>
-                    </div>
+                     {/* VS göstergesi - her ekranda */}
+                     <div className="text-center">
+                       <div className="inline-flex items-center space-x-1 sm:space-x-2 bg-gray-100 text-gray-600 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full">
+                         <span className="text-xs font-medium">VS</span>
+                       </div>
+                     </div>
 
-                    {/* Deplasman takımı */}
-                    <div className="flex items-center justify-between bg-gray-50 rounded-lg p-2 sm:p-3">
-                      <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
-                        <TeamLogo teamName={match.away} size="sm" />
-                        <span className="font-semibold text-gray-800 text-xs sm:text-sm xl:text-base truncate">{match.away}</span>
-                      </div>
-                      <div className="flex-shrink-0 ml-2">
-                        <ScoreInput 
-                          value={match.awayScore} 
-                          onChange={(e) => updateScore(weekIndex, selectedDateGroup, matchIndex, "awayScore", e.target.value)} 
-                        />
-                      </div>
-                    </div>
-                  </div>
+                     {/* Deplasman takımı */}
+                     <div className="flex items-center justify-between bg-gray-50 rounded-lg p-1 sm:p-2 xl:p-2">
+                       <div className="flex items-center space-x-1 sm:space-x-2 xl:space-x-3 flex-1 min-w-0">
+                         <TeamLogo teamName={match.away} size="sm" />
+                         <span className="font-semibold text-gray-800 text-xs sm:text-sm xl:text-base truncate">{match.away}</span>
+                       </div>
+                       <div className="flex-shrink-0 ml-1 sm:ml-2">
+                         <ScoreInput 
+                           value={match.awayScore} 
+                           onChange={(e) => updateScore(weekIndex, selectedDateGroup, matchIndex, "awayScore", e.target.value)} 
+                         />
+                       </div>
+                     </div>
+                   </div>
                   
-                  {/* Tahmin durumu - kompakt */}
-                  <div className="mt-2 sm:mt-3 text-center">
-                    {match.homeScore !== null && match.awayScore !== null ? (
-                      <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-2 py-1 rounded-full">
-                        <span className="text-xs">✅ {match.homeScore} - {match.awayScore}</span>
-                      </div>
-                    ) : (
-                      <div className="inline-flex items-center space-x-2 bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
-                        <span className="text-xs">⏳ Bekleniyor</span>
-                      </div>
-                    )}
-                  </div>
+                                     {/* Tahmin durumu - kompakt */}
+                   <div className="mt-1 sm:mt-2 xl:mt-2 text-center">
+                     {match.homeScore !== null && match.awayScore !== null ? (
+                       <div className="inline-flex items-center space-x-1 sm:space-x-2 bg-green-100 text-green-800 px-1 py-0.5 sm:px-2 sm:py-1 rounded-full">
+                         <span className="text-xs">✅ {match.homeScore} - {match.awayScore}</span>
+                       </div>
+                     ) : (
+                       <div className="inline-flex items-center space-x-1 sm:space-x-2 bg-yellow-100 text-yellow-800 px-1 py-0.5 sm:px-2 sm:py-1 rounded-full">
+                         <span className="text-xs">⏳ Bekleniyor</span>
+                       </div>
+                     )}
+                   </div>
                 </div>
               ))}
             </div>
