@@ -54,7 +54,7 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
             <thead>
               <tr className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
                 <th className="p-0.5 sm:p-1 xl:p-4 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-6 sm:w-8 xl:w-16">Sıra</th>
-                <th className="p-0.5 sm:p-1 xl:p-4 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-16 sm:w-20 xl:w-40">Takım</th>
+                <th className="p-0.5 sm:p-1 xl:p-4 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-20 sm:w-28 xl:w-48">Takım</th>
                 <th className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">O</th>
                 <th className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">G</th>
                 <th className="p-0.5 sm:p-1 xl:p-4 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">B</th>

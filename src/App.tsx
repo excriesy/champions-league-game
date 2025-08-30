@@ -245,8 +245,8 @@ export default function App() {
                 </button>
                 
                 <div className="text-center">
-                  <h2 className="text-base sm:text-lg md:text-2xl xl:text-3xl font-bold text-gray-800">{matchdays[currentWeek].title}</h2>
-                  <p className="text-xs sm:text-sm xl:text-lg text-gray-600">{matchdays[currentWeek].week}. Hafta</p>
+                  <h2 className="text-base sm:text-lg md:text-2xl xl:text-3xl font-bold text-gray-800">{currentWeek + 1}. Hafta</h2>
+                  <p className="text-xs sm:text-sm xl:text-lg text-gray-600">{matchdays[currentWeek].title}</p>
                 </div>
                 
                 <button
@@ -283,7 +283,7 @@ export default function App() {
           </div>
           
           {/* Sağ panel - Puan tablosu (Sadece PC'de görünür) */}
-          <div className="hidden xl:block xl:w-[680px] flex-shrink-0">
+          <div className="hidden xl:block xl:w-[800px] flex-shrink-0">
             <div className="bg-white rounded-2xl xl:rounded-3xl shadow-xl xl:shadow-2xl p-6 xl:p-8 border border-gray-200 xl:sticky xl:top-8">
               <Standings 
                 standings={standings} 

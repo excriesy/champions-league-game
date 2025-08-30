@@ -471,16 +471,6 @@ body {
 .standings-container table td,
 .standings-container table th {
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Takım isimleri için özel truncate */
-.standings-container table td:nth-child(2) span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 100%;
 }
 
 /* Mobilde puan tablosu için özel optimizasyonlar */
