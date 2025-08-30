@@ -28,6 +28,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  /* Mobil için ek optimizasyonlar */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 h1 {
@@ -45,6 +49,9 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  /* Mobil için touch optimizasyonu */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 button:hover {
   border-color: #646cff;
@@ -52,6 +59,35 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Mobil için ek optimizasyonlar */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.2;
+  }
+  
+  button {
+    min-height: 44px;
+    min-width: 44px;
+    font-size: 16px; /* iOS'ta zoom'u önler */
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
 }
 
 @media (prefers-color-scheme: light) {

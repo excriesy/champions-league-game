@@ -187,54 +187,54 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white p-6 rounded-b-3xl shadow-lg">
-        <div className="flex items-center justify-center space-x-4">
-          <img src="/logo/ucl.png" alt="UCL Logo" className="w-12 h-12" />
-          <h1 className="text-3xl font-bold text-center">
+      {/* Header - mobil için kompakt */}
+      <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white p-3 sm:p-6 rounded-b-3xl shadow-lg">
+        <div className="flex items-center justify-center space-x-2 sm:space-x-4">
+          <img src="/logo/ucl.png" alt="UCL Logo" className="w-8 h-8 sm:w-12 sm:h-12" />
+          <h1 className="text-lg sm:text-3xl font-bold text-center">
             Şampiyonlar Ligi Skor Tahmini 
           </h1>
-          <img src="/logo/ucl.png" alt="UCL Logo" className="w-12 h-12" />
+          <img src="/logo/ucl.png" alt="UCL Logo" className="w-8 h-8 sm:w-12 sm:h-12" />
         </div>
       </div>
 
-      {/* Ana içerik */}
-      <div className="w-full max-w-[1600px] mx-auto px-4 py-8">
-        <div className="flex flex-col xl:flex-row gap-6">
+      {/* Ana içerik - mobil için optimize */}
+      <div className="w-full max-w-[1600px] mx-auto px-2 sm:px-4 py-4 sm:py-8">
+        <div className="flex flex-col xl:flex-row gap-4 sm:gap-6">
           {/* Sol panel - Maç programı */}
           <div className="flex-1 min-w-0 xl:mr-4">
-            <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-200">
-              {/* Hafta navigasyonu */}
-              <div className="flex items-center justify-between mb-6">
+            <div className="bg-white rounded-2xl shadow-xl p-3 sm:p-6 border border-gray-200">
+              {/* Hafta navigasyonu - mobil için kompakt */}
+              <div className="flex items-center justify-between mb-4 sm:mb-6">
                 <button
                   onClick={() => setCurrentWeek(Math.max(0, currentWeek - 1))}
                   disabled={currentWeek === 0}
-                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200"
+                  className="px-2 sm:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 text-xs sm:text-sm"
                 >
-                  ← Önceki Hafta
+                  ← Önceki
                 </button>
                 
                 <div className="text-center">
-                  <h2 className="text-2xl font-bold text-gray-800">{matchdays[currentWeek].title}</h2>
-                  <p className="text-gray-600">{matchdays[currentWeek].week}. Hafta</p>
+                  <h2 className="text-lg sm:text-2xl font-bold text-gray-800">{matchdays[currentWeek].title}</h2>
+                  <p className="text-xs sm:text-sm text-gray-600">{matchdays[currentWeek].week}. Hafta</p>
                 </div>
                 
                 <button
                   onClick={() => setCurrentWeek(Math.min(matchdays.length - 1, currentWeek + 1))}
                   disabled={currentWeek === matchdays.length - 1}
-                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200"
+                  className="px-2 sm:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 text-xs sm:text-sm"
                 >
-                  Sonraki Hafta →
-        </button>
+                  Sonraki →
+                </button>
               </div>
               
-              {/* Hafta göstergeleri */}
-              <div className="flex justify-center space-x-2 mb-6">
+              {/* Hafta göstergeleri - mobil için kompakt */}
+              <div className="flex justify-center space-x-1 sm:space-x-2 mb-4 sm:mb-6">
                 {matchdays.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentWeek(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${
                       index === currentWeek 
                         ? 'bg-blue-500 scale-125' 
                         : 'bg-gray-300 hover:bg-gray-400'
@@ -252,9 +252,9 @@ export default function App() {
             </div>
           </div>
           
-          {/* Sağ panel - Puan tablosu */}
-          <div className="xl:w-[680px] flex-shrink-0">
-            <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-200 xl:sticky xl:top-8">
+          {/* Sağ panel - Puan tablosu - mobilde alt kısımda */}
+          <div className="xl:w-[680px] flex-shrink-0 order-first xl:order-last">
+            <div className="bg-white rounded-2xl shadow-xl p-3 sm:p-6 border border-gray-200 xl:sticky xl:top-8">
               <Standings 
                 standings={standings} 
                 onResetAll={resetData}
