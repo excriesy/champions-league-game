@@ -51,16 +51,16 @@ export default function TeamLogo({ teamName, size = "md" }: TeamLogoProps) {
   const logoPath = getLogoPath(teamName);
   
   const sizeClasses = {
-    sm: "w-6 h-6",
-    md: "w-8 h-8",
-    lg: "w-12 h-12"
+    sm: "w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8",
+    md: "w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10",
+    lg: "w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
   };
 
   return (
     <img 
       src={`/logo/${logoPath}`}
       alt={`${teamName} logo`}
-      className={`${sizeClasses[size]} object-contain rounded-full border-2 border-white shadow-sm`}
+      className={`${sizeClasses[size]} object-contain rounded-full border-2 border-white shadow-sm flex-shrink-0`}
       onError={(e) => {
         // Logo yüklenemezse UCL logosunu göster
         const target = e.target as HTMLImageElement;

@@ -95,70 +95,73 @@ export default function Matchday({ matchday, weekIndex, updateScore, onResetWeek
               </div>
             </button>
             
-            {/* Maçlar - mobilde yan yana, desktop'ta dikey */}
+            {/* Maçlar - mobilde grid (2 sütun), desktop'ta tek sütun */}
             {!collapsedDates.has(dateGroupIndex) && (
               <div className="space-y-2 pl-2 sm:pl-4">
-                {dateGroup.matches.map((match, matchIndex) => (
-                  <div key={matchIndex} className="bg-gradient-to-r from-gray-50 to-white rounded-xl p-2 sm:p-4 border border-gray-200 hover:shadow-lg transition-all duration-300">
-                    {/* Maç zamanı - üstte */}
-                    <div className="text-center mb-2 sm:mb-3">
-                      <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
-                        <span className="text-xs font-medium">🕐 {match.time}</span>
-                      </div>
-                    </div>
-
-                    {/* Takım ve skor layout - mobilde yan yana, desktop'ta dikey */}
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
-                      {/* Ev sahibi takım */}
-                      <div className="flex items-center justify-between sm:justify-start bg-gray-50 rounded-lg p-2 sm:p-3 flex-1">
-                        <div className="flex items-center space-x-2 sm:space-x-3 flex-1">
-                          <TeamLogo teamName={match.home} size="sm" />
-                          <span className="font-semibold text-gray-800 text-xs sm:text-sm truncate">{match.home}</span>
-                        </div>
-                        <div className="flex-shrink-0">
-                          <ScoreInput 
-                            value={match.homeScore} 
-                            onChange={(e) => updateScore(weekIndex, dateGroupIndex, matchIndex, "homeScore", e.target.value)} 
-                          />
+                {/* Mobilde grid layout, desktop'ta tek sütun */}
+                <div className="grid grid-cols-2 sm:grid-cols-1 gap-2 sm:gap-3">
+                  {dateGroup.matches.map((match, matchIndex) => (
+                    <div key={matchIndex} className="bg-gradient-to-r from-gray-50 to-white rounded-xl p-2 sm:p-4 border border-gray-200 hover:shadow-lg transition-all duration-300">
+                      {/* Maç zamanı - üstte */}
+                      <div className="text-center mb-2 sm:mb-3">
+                        <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                          <span className="text-xs font-medium">🕐 {match.time}</span>
                         </div>
                       </div>
 
-                      {/* VS göstergesi - mobilde yan yana */}
-                      <div className="hidden sm:block text-center mx-4">
-                        <div className="inline-flex items-center space-x-2 bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
-                          <span className="text-xs font-medium">VS</span>
+                      {/* Takım ve skor layout - mobilde kompakt, desktop'ta normal */}
+                      <div className="space-y-2 sm:space-y-3">
+                        {/* Ev sahibi takım */}
+                        <div className="flex items-center justify-between bg-gray-50 rounded-lg p-2 sm:p-3">
+                          <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
+                            <TeamLogo teamName={match.home} size="sm" />
+                            <span className="font-semibold text-gray-800 text-xs sm:text-sm truncate">{match.home}</span>
+                          </div>
+                          <div className="flex-shrink-0 ml-2">
+                            <ScoreInput 
+                              value={match.homeScore} 
+                              onChange={(e) => updateScore(weekIndex, dateGroupIndex, matchIndex, "homeScore", e.target.value)} 
+                            />
+                          </div>
                         </div>
-                      </div>
 
-                      {/* Deplasman takımı */}
-                      <div className="flex items-center justify-between sm:justify-end bg-gray-50 rounded-lg p-2 sm:p-3 flex-1">
-                        <div className="flex items-center space-x-2 sm:space-x-3 flex-1 sm:justify-end">
-                          <span className="font-semibold text-gray-800 text-xs sm:text-sm truncate sm:text-right">{match.away}</span>
-                          <TeamLogo teamName={match.away} size="sm" />
+                        {/* VS göstergesi - sadece desktop'ta */}
+                        <div className="hidden sm:block text-center">
+                          <div className="inline-flex items-center space-x-2 bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
+                            <span className="text-xs font-medium">VS</span>
+                          </div>
                         </div>
-                        <div className="flex-shrink-0">
-                          <ScoreInput 
-                            value={match.awayScore} 
-                            onChange={(e) => updateScore(weekIndex, dateGroupIndex, matchIndex, "awayScore", e.target.value)} 
-                          />
+
+                        {/* Deplasman takımı */}
+                        <div className="flex items-center justify-between bg-gray-50 rounded-lg p-2 sm:p-3">
+                          <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
+                            <TeamLogo teamName={match.away} size="sm" />
+                            <span className="font-semibold text-gray-800 text-xs sm:text-sm truncate">{match.away}</span>
+                          </div>
+                          <div className="flex-shrink-0 ml-2">
+                            <ScoreInput 
+                              value={match.awayScore} 
+                              onChange={(e) => updateScore(weekIndex, dateGroupIndex, matchIndex, "awayScore", e.target.value)} 
+                            />
+                          </div>
                         </div>
                       </div>
+                      
+                      {/* Tahmin durumu - mobil için kompakt */}
+                      <div className="mt-2 sm:mt-3 text-center">
+                        {match.homeScore !== null && match.awayScore !== null ? (
+                          <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-2 py-1 rounded-full">
+                            <span className="text-xs">✅ {match.homeScore} - {match.awayScore}</span>
+                          </div>
+                        ) : (
+                          <div className="inline-flex items-center space-x-2 bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
+                            <span className="text-xs">⏳ Bekleniyor</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    
-                    {/* Tahmin durumu - mobil için kompakt */}
-                    <div className="mt-2 sm:mt-3 text-center">
-                      {match.homeScore !== null && match.awayScore !== null ? (
-                        <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-2 py-1 rounded-full">
-                          <span className="text-xs">✅ {match.homeScore} - {match.awayScore}</span>
-                        </div>
-                      ) : (
-                        <div className="inline-flex items-center space-x-2 bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
-                          <span className="text-xs">⏳ Bekleniyor</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             )}
           </div>

@@ -23,7 +23,7 @@ export default function ScoreInput({ value, onChange, placeholder = "0" }: Score
       onChange={onChange}
       onFocus={handleFocus}
       placeholder={placeholder}
-      className="w-10 h-8 sm:w-12 sm:h-10 md:w-16 md:h-12 text-center text-sm sm:text-base md:text-lg font-bold border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all duration-200"
+      className="w-8 h-7 sm:w-10 sm:h-8 md:w-12 md:h-10 lg:w-16 lg:h-12 text-center text-xs sm:text-sm md:text-base lg:text-lg font-bold border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all duration-200"
     />
   );
 }
