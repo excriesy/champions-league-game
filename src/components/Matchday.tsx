@@ -95,10 +95,10 @@ export default function Matchday({ matchday, weekIndex, updateScore, onResetWeek
               </div>
             </button>
             
-            {/* Maçlar - Grid layout ile 2 sütun */}
+            {/* Maçlar - Grid layout ile 2 sütun (mobilde de) */}
             {!collapsedDates.has(dateGroupIndex) && (
               <div className="pl-2 sm:pl-4 xl:pl-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 xl:gap-4">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3 xl:gap-4">
                   {dateGroup.matches.map((match, matchIndex) => (
                     <div key={matchIndex} className="bg-gradient-to-r from-gray-50 to-white rounded-xl xl:rounded-2xl p-2 sm:p-3 xl:p-4 border border-gray-200 hover:shadow-lg xl:hover:shadow-xl transition-all duration-300 hover:scale-[1.02] xl:hover:scale-[1.01] hover:-translate-y-1">
                       {/* Maç zamanı - üstte */}
@@ -124,8 +124,8 @@ export default function Matchday({ matchday, weekIndex, updateScore, onResetWeek
                           </div>
                         </div>
 
-                        {/* VS göstergesi - sadece desktop'ta */}
-                        <div className="hidden sm:block text-center">
+                        {/* VS göstergesi - her ekranda */}
+                        <div className="text-center">
                           <div className="inline-flex items-center space-x-2 bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
                             <span className="text-xs font-medium">VS</span>
                           </div>
