@@ -199,13 +199,13 @@ export default function App() {
       </div>
 
       {/* Ana içerik - mobil için optimize */}
-      <div className="w-full max-w-[1600px] mx-auto px-2 sm:px-4 py-4 sm:py-8">
-        <div className="flex flex-col xl:flex-row gap-4 sm:gap-6">
+      <div className="w-full max-w-[1600px] mx-auto px-1 sm:px-4 py-2 sm:py-8">
+        <div className="flex flex-col xl:flex-row gap-2 sm:gap-6">
           {/* Sol panel - Maç programı */}
           <div className="flex-1 min-w-0 xl:mr-4">
-            <div className="bg-white rounded-2xl shadow-xl p-3 sm:p-6 border border-gray-200">
+            <div className="bg-white rounded-2xl shadow-xl p-2 sm:p-6 border border-gray-200">
               {/* Hafta navigasyonu - mobil için kompakt */}
-              <div className="flex items-center justify-between mb-4 sm:mb-6">
+              <div className="flex items-center justify-between mb-3 sm:mb-6">
                 <button
                   onClick={() => setCurrentWeek(Math.max(0, currentWeek - 1))}
                   disabled={currentWeek === 0}
@@ -215,7 +215,7 @@ export default function App() {
                 </button>
                 
                 <div className="text-center">
-                  <h2 className="text-lg sm:text-2xl font-bold text-gray-800">{matchdays[currentWeek].title}</h2>
+                  <h2 className="text-base sm:text-lg md:text-2xl font-bold text-gray-800">{matchdays[currentWeek].title}</h2>
                   <p className="text-xs sm:text-sm text-gray-600">{matchdays[currentWeek].week}. Hafta</p>
                 </div>
                 
@@ -229,7 +229,7 @@ export default function App() {
               </div>
               
               {/* Hafta göstergeleri - mobil için kompakt */}
-              <div className="flex justify-center space-x-1 sm:space-x-2 mb-4 sm:mb-6">
+              <div className="flex justify-center space-x-1 sm:space-x-2 mb-3 sm:mb-6">
                 {matchdays.map((_, index) => (
                   <button
                     key={index}
@@ -254,7 +254,7 @@ export default function App() {
           
           {/* Sağ panel - Puan tablosu - mobilde alt kısımda */}
           <div className="xl:w-[680px] flex-shrink-0 order-first xl:order-last">
-            <div className="bg-white rounded-2xl shadow-xl p-3 sm:p-6 border border-gray-200 xl:sticky xl:top-8">
+            <div className="bg-white rounded-2xl shadow-xl p-2 sm:p-6 border border-gray-200 xl:sticky xl:top-8">
               <Standings 
                 standings={standings} 
                 onResetAll={resetData}
