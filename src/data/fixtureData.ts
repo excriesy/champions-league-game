@@ -33,7 +33,7 @@ export const fixtureData = [
           { home: "Kopenhag", away: "Bayer Leverkusen", homeScore: null, awayScore: null, time: "18:45" },
           { home: "Eintracht Frankfurt", away: "Galatasaray", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Manchester City", away: "Napoli", homeScore: null, awayScore: null, time: "21:00" },
-          { home: "Newcastle Utd", away: "Barcelona", homeScore: null, awayScore: null, time: "21:00" },
+          { home: "Newcastle", away: "Barcelona", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Sporting CP", away: "Kairat", homeScore: null, awayScore: null, time: "21:00" }
         ]
       }
@@ -61,7 +61,7 @@ export const fixtureData = [
         date: "Wednesday 1 October 2025",
         matches: [
           { home: "Karabağ", away: "Kopenhag", homeScore: null, awayScore: null, time: "18:45" },
-          { home: "Union Saint-Gilloise", away: "Newcastle Utd", homeScore: null, awayScore: null, time: "18:45" },
+          { home: "Union Saint-Gilloise", away: "Newcastle", homeScore: null, awayScore: null, time: "18:45" },
           { home: "Arsenal", away: "Olympiacos", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Monaco", away: "Manchester City", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Bayer Leverkusen", away: "PSV", homeScore: null, awayScore: null, time: "21:00" },
@@ -85,7 +85,7 @@ export const fixtureData = [
           { home: "Arsenal", away: "Atletico Madrid", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Bayer Leverkusen", away: "PSG", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Kopenhag", away: "Borussia Dortmund", homeScore: null, awayScore: null, time: "21:00" },
-          { home: "Newcastle Utd", away: "Benfica", homeScore: null, awayScore: null, time: "21:00" },
+          { home: "Newcastle", away: "Benfica", homeScore: null, awayScore: null, time: "21:00" },
           { home: "PSV", away: "Napoli", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Union Saint-Gilloise", away: "Inter Milan", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Villarreal", away: "Manchester City", homeScore: null, awayScore: null, time: "21:00" }
@@ -134,7 +134,7 @@ export const fixtureData = [
           { home: "Club Brugge", away: "Barcelona", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Inter Milan", away: "Kairat", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Manchester City", away: "Borussia Dortmund", homeScore: null, awayScore: null, time: "21:00" },
-          { home: "Newcastle Utd", away: "Athletic Bilbao", homeScore: null, awayScore: null, time: "21:00" },
+          { home: "Newcastle", away: "Athletic Bilbao", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Marsilya", away: "Atalanta", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Benfica", away: "Bayer Leverkusen", homeScore: null, awayScore: null, time: "21:00" }
         ]
@@ -154,7 +154,7 @@ export const fixtureData = [
           { home: "Chelsea", away: "Barcelona", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Bodo/Glimt", away: "Juventus", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Manchester City", away: "Bayer Leverkusen", homeScore: null, awayScore: null, time: "21:00" },
-          { home: "Marsilya", away: "Newcastle Utd", homeScore: null, awayScore: null, time: "21:00" },
+          { home: "Marsilya", away: "Newcastle", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Slavia Prague", away: "Athletic Bilbao", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Napoli", away: "Karabağ", homeScore: null, awayScore: null, time: "21:00" }
         ]
@@ -199,7 +199,7 @@ export const fixtureData = [
           { home: "Karabağ", away: "Ajax", homeScore: null, awayScore: null, time: "18:45" },
           { home: "Villarreal", away: "Kopenhag", homeScore: null, awayScore: null, time: "18:45" },
           { home: "Athletic Bilbao", away: "PSG", homeScore: null, awayScore: null, time: "21:00" },
-          { home: "Bayer Leverkusen", away: "Newcastle Utd", homeScore: null, awayScore: null, time: "21:00" },
+          { home: "Bayer Leverkusen", away: "Newcastle", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Borussia Dortmund", away: "Bodo/Glimt", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Club Brugge", away: "Arsenal", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Juventus", away: "Pafos", homeScore: null, awayScore: null, time: "21:00" },
@@ -236,7 +236,7 @@ export const fixtureData = [
           { home: "Chelsea", away: "Pafos", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Bayern Münih", away: "Union Saint-Gilloise", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Juventus", away: "Benfica", homeScore: null, awayScore: null, time: "21:00" },
-          { home: "Newcastle Utd", away: "PSV", homeScore: null, awayScore: null, time: "21:00" },
+          { home: "Newcastle", away: "PSV", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Marsilya", away: "Liverpool", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Slavia Prague", away: "Barcelona", homeScore: null, awayScore: null, time: "21:00" }
         ]
@@ -263,7 +263,7 @@ export const fixtureData = [
           { home: "Liverpool", away: "Karabağ", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Manchester City", away: "Galatasaray", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Pafos", away: "Slavia Prague", homeScore: null, awayScore: null, time: "21:00" },
-          { home: "PSG", away: "Newcastle Utd", homeScore: null, awayScore: null, time: "21:00" },
+          { home: "PSG", away: "Newcastle", homeScore: null, awayScore: null, time: "21:00" },
           { home: "PSV", away: "Bayern Münih", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Union Saint-Gilloise", away: "Atalanta", homeScore: null, awayScore: null, time: "21:00" },
           { home: "Benfica", away: "Real Madrid", homeScore: null, awayScore: null, time: "21:00" },
@@ -296,7 +296,7 @@ export const allTeams = [
   "Galatasaray",
   "Manchester City",
   "Napoli",
-  "Newcastle Utd",
+  "Newcastle",
   "Barcelona",
   "Sporting CP",
   "Kairat",

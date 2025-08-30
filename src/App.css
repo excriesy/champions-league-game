@@ -82,24 +82,20 @@ body {
 }
 
 /* Tablo sütun genişlikleri */
-.max-w-full th.w-10 {
-  width: 2.5rem;
-}
-
-.max-w-full th.w-28 {
-  width: 7rem;
-}
-
-.max-w-full th.w-40 {
-  width: 10rem;
-}
-
-.max-w-full th.w-8 {
-  width: 2rem;
-}
-
 .max-w-full th.w-12 {
   width: 3rem;
+}
+
+.max-w-full th.w-36 {
+  width: 9rem;
+}
+
+.max-w-full th.w-48 {
+  width: 12rem;
+}
+
+.max-w-full th.w-10 {
+  width: 2.5rem;
 }
 
 .max-w-full th.w-16 {

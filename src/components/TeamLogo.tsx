@@ -27,7 +27,7 @@ export default function TeamLogo({ teamName, size = "md" }: TeamLogoProps) {
       "Galatasaray": "galatasaray.webp",
       "Manchester City": "manchester city.png",
       "Napoli": "napoli.webp",
-      "Newcastle Utd": "Newcastle Utd.png",
+      "Newcastle": "Newcastle.png",
       "Barcelona": "barcelona.png",
       "Sporting CP": "sporting lizbon.png",
       "Kairat": "kairat.png",

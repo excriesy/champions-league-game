@@ -50,19 +50,19 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
       {/* Puan tablosu */}
       <div className="max-w-full p-2 sm:p-4 standings-container">
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse min-w-0 text-xs sm:text-sm">
+          <table className="w-full border-collapse min-w-[800px] text-xs sm:text-sm">
             <thead>
               <tr className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-                <th className="p-2 sm:p-3 text-left text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-16">Sıra</th>
-                <th className="p-2 sm:p-3 text-left text-xs sm:text-sm font-semibold border-b border-blue-400 w-28 sm:w-40">Takım</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-12">O</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-12">G</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-12">B</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-12">M</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-12">A</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-8 sm:w-12">Y</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-12 sm:w-20">Averaj</th>
-                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-16">Puan</th>
+                <th className="p-2 sm:p-3 text-left text-xs sm:text-sm font-semibold border-b border-blue-400 w-12 sm:w-16">Sıra</th>
+                <th className="p-2 sm:p-3 text-left text-xs sm:text-sm font-semibold border-b border-blue-400 w-36 sm:w-48">Takım</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-12">O</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-12">G</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-12">B</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-12">M</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-12">A</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-10 sm:w-12">Y</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-16 sm:w-20">Averaj</th>
+                <th className="p-2 sm:p-3 text-center text-xs sm:text-sm font-semibold border-b border-blue-400 w-12 sm:w-16">Puan</th>
               </tr>
             </thead>
             <tbody>
