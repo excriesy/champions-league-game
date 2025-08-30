@@ -199,6 +199,35 @@ export default function App() {
         </div>
       </div>
 
+      {/* Mobil Puan Tablosu - Yukarıda açılır/kapanır */}
+      <div className="xl:hidden mt-4 mx-4">
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-200">
+          {/* Puan Tablosu Toggle Butonu */}
+          <button
+            onClick={() => setShowStandings(!showStandings)}
+            className="standings-toggle w-full text-white p-4 rounded-t-2xl flex items-center justify-between transition-all duration-300"
+          >
+            <div className="flex items-center space-x-3">
+              <img src="/logo/ucl.png" alt="UCL Logo" className="w-6 h-6" />
+              <span className="text-lg font-bold">Puan Tablosu</span>
+            </div>
+            <div className={`transform transition-transform duration-300 ${showStandings ? 'rotate-180' : ''}`}>
+              ▼
+            </div>
+          </button>
+          
+          {/* Açılır/Kapanır Puan Tablosu */}
+          {showStandings && (
+            <div className="standings-content p-4 border-t border-gray-200">
+              <Standings 
+                standings={standings} 
+                onResetAll={resetData}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* Ana içerik - responsive tasarım */}
       <div className="w-full max-w-[1600px] mx-auto px-1 sm:px-4 xl:px-8 py-2 sm:py-8 xl:py-12">
         <div className="flex flex-col xl:flex-row gap-2 sm:gap-6 xl:gap-8">
@@ -261,35 +290,6 @@ export default function App() {
                 onResetAll={resetData}
               />
             </div>
-          </div>
-        </div>
-
-        {/* Mobil Puan Tablosu - En altta açılır/kapanır */}
-        <div className="xl:hidden mt-8">
-          <div className="bg-white rounded-2xl shadow-xl border border-gray-200">
-            {/* Puan Tablosu Toggle Butonu */}
-            <button
-              onClick={() => setShowStandings(!showStandings)}
-              className="standings-toggle w-full text-white p-4 rounded-t-2xl flex items-center justify-between transition-all duration-300"
-            >
-              <div className="flex items-center space-x-3">
-                <img src="/logo/ucl.png" alt="UCL Logo" className="w-8 h-8" />
-                <span className="text-xl font-bold">Puan Tablosu</span>
-              </div>
-              <div className={`transform transition-transform duration-300 ${showStandings ? 'rotate-180' : ''}`}>
-                ▼
-              </div>
-            </button>
-            
-            {/* Açılır/Kapanır Puan Tablosu */}
-            {showStandings && (
-              <div className="standings-content p-4 border-t border-gray-200">
-                <Standings 
-                  standings={standings} 
-                  onResetAll={resetData}
-                />
-              </div>
-            )}
           </div>
         </div>
       </div>

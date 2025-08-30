@@ -175,25 +175,25 @@ body {
   width: 5rem;
 }
 
-/* Tablo scroll düzeltmeleri */
+/* Tablo scroll düzeltmeleri - Kompakt versiyon */
 .standings-container {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 .standings-container table {
-  min-width: 800px;
+  min-width: 600px;
 }
 
 @media (min-width: 640px) {
   .standings-container table {
-    min-width: 900px;
+    min-width: 700px;
   }
 }
 
 @media (min-width: 768px) {
   .standings-container table {
-    min-width: 1000px;
+    min-width: 800px;
   }
 }
 
@@ -278,7 +278,7 @@ body {
   }
 }
 
-/* Puan tablosu için özel stiller */
+/* Puan tablosu için özel stiller - Kompakt versiyon */
 .standings-table th {
   position: sticky;
   top: 0;
@@ -483,5 +483,44 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 100%;
+  }
+}
+
+/* Puan tablosu için ek kompakt stiller */
+.standings-container table td,
+.standings-container table th {
+  white-space: nowrap;
+}
+
+.standings-container table td:first-child,
+.standings-container table th:first-child {
+  position: sticky;
+  left: 0;
+  background: inherit;
+  z-index: 5;
+}
+
+.standings-container table td:nth-child(2),
+.standings-container table th:nth-child(2) {
+  position: sticky;
+  left: 2rem;
+  background: inherit;
+  z-index: 5;
+}
+
+/* Mobilde puan tablosu için özel optimizasyonlar */
+@media (max-width: 768px) {
+  .standings-container {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .standings-container table {
+    font-size: 0.7rem;
+  }
+  
+  .standings-container table td,
+  .standings-container table th {
+    padding: 0.25rem 0.5rem;
   }
 }
