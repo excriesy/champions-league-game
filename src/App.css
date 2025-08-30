@@ -136,7 +136,7 @@ body {
   gap: 1.5rem;
 }
 
-/* Tablo genişlik ve padding ayarları - Scroll sorunu çözüldü */
+/* Tablo genişlik ve padding ayarları - Sabit tablo */
 .max-w-full {
   max-width: 100%;
 }
@@ -147,7 +147,7 @@ body {
 
 .max-w-full table {
   width: 100%;
-  table-layout: auto;
+  table-layout: fixed;
 }
 
 /* Tablo sütun genişlikleri - Responsive */
@@ -175,33 +175,14 @@ body {
   width: 5rem;
 }
 
-/* Tablo scroll düzeltmeleri - Kompakt versiyon */
+/* Tablo sabit düzen - Scroll yok */
 .standings-container {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
 
 .standings-container table {
-  min-width: 600px;
-}
-
-@media (min-width: 640px) {
-  .standings-container table {
-    min-width: 700px;
-  }
-}
-
-@media (min-width: 768px) {
-  .standings-container table {
-    min-width: 800px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .standings-container table {
-    min-width: auto;
-    width: 100%;
-  }
+  width: 100%;
+  table-layout: fixed;
 }
 
 /* Scroll bar gizleme */
@@ -278,7 +259,7 @@ body {
   }
 }
 
-/* Puan tablosu için özel stiller - Kompakt versiyon */
+/* Puan tablosu için özel stiller - Sabit tablo */
 .standings-table th {
   position: sticky;
   top: 0;
@@ -486,41 +467,36 @@ body {
   }
 }
 
-/* Puan tablosu için ek kompakt stiller */
+/* Puan tablosu için sabit düzen */
 .standings-container table td,
 .standings-container table th {
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.standings-container table td:first-child,
-.standings-container table th:first-child {
-  position: sticky;
-  left: 0;
-  background: inherit;
-  z-index: 5;
-}
-
-.standings-container table td:nth-child(2),
-.standings-container table th:nth-child(2) {
-  position: sticky;
-  left: 2rem;
-  background: inherit;
-  z-index: 5;
+/* Takım isimleri için özel truncate */
+.standings-container table td:nth-child(2) span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 /* Mobilde puan tablosu için özel optimizasyonlar */
 @media (max-width: 768px) {
-  .standings-container {
-    max-height: 400px;
-    overflow-y: auto;
-  }
-  
   .standings-container table {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
   
   .standings-container table td,
   .standings-container table th {
-    padding: 0.25rem 0.5rem;
+    padding: 0.2rem 0.3rem;
+  }
+  
+  /* Mobilde takım logoları daha küçük */
+  .standings-container table img {
+    width: 12px;
+    height: 12px;
   }
 }

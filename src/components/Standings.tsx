@@ -49,20 +49,20 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
       
       {/* Puan tablosu */}
       <div className="max-w-full p-0.5 sm:p-1 xl:p-4 standings-container">
-        <div className="overflow-x-auto">
+        <div className="w-full">
           <table className="w-full border-collapse text-xs sm:text-sm xl:text-base">
             <thead>
               <tr className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-                <th className="p-0.5 sm:p-1 xl:p-3 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-6 sm:w-8 xl:w-16">Sıra</th>
-                <th className="p-0.5 sm:p-1 xl:p-3 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-20 sm:w-28 xl:w-48">Takım</th>
-                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">O</th>
-                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">G</th>
-                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">B</th>
-                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">M</th>
-                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">A</th>
-                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-12">Y</th>
-                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-8 sm:w-12 xl:w-20">Averaj</th>
-                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-6 sm:w-8 xl:w-16">Puan</th>
+                <th className="p-0.5 sm:p-1 xl:p-3 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-6 sm:w-8 xl:w-12">Sıra</th>
+                <th className="p-0.5 sm:p-1 xl:p-3 text-left text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-16 sm:w-20 xl:w-32">Takım</th>
+                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-8">O</th>
+                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-8">G</th>
+                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-8">B</th>
+                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-8">M</th>
+                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-8">A</th>
+                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-4 sm:w-6 xl:w-8">Y</th>
+                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-6 sm:w-8 xl:w-12">Averaj</th>
+                <th className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-semibold border-b border-blue-400 w-5 sm:w-6 xl:w-10">Puan</th>
               </tr>
             </thead>
             <tbody>
@@ -86,7 +86,7 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
                     className={`border-b transition-all duration-200 hover:bg-gray-50 ${rowColor}`}
                   >
                     <td className="p-0.5 sm:p-1 xl:p-3 text-xs sm:text-sm xl:text-base font-bold">
-                      <span className="inline-flex items-center justify-center w-3 h-3 sm:w-4 sm:h-4 xl:w-8 xl:h-8 rounded-full bg-gray-300 text-gray-700">
+                      <span className="inline-flex items-center justify-center w-3 h-3 sm:w-4 sm:h-4 xl:w-6 xl:h-6 rounded-full bg-gray-300 text-gray-700">
                         {index + 1}
                       </span>
                     </td>
@@ -115,7 +115,7 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
                       {stats.goalsAgainst}
                     </td>
                     <td className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-bold">
-                      <span className={`px-0.5 py-0 sm:px-1 sm:py-0.5 xl:px-2 xl:py-1 rounded text-xs sm:text-sm xl:text-base ${
+                      <span className={`px-0.5 py-0 sm:px-1 sm:py-0.5 xl:px-1 xl:py-0.5 rounded text-xs sm:text-sm xl:text-base ${
                         goalDifference > 0 
                           ? 'bg-green-100 text-green-800' 
                           : goalDifference < 0 
@@ -126,7 +126,7 @@ export default function Standings({ standings, onResetAll }: StandingsProps) {
                       </span>
                     </td>
                     <td className="p-0.5 sm:p-1 xl:p-3 text-center text-xs sm:text-sm xl:text-base font-bold">
-                      <span className="px-0.5 py-0 sm:px-1 sm:py-0.5 xl:px-2 xl:py-1 rounded bg-gray-100 text-gray-800">
+                      <span className="px-0.5 py-0 sm:px-1 sm:py-0.5 xl:px-1 xl:py-0.5 rounded bg-gray-100 text-gray-800">
                         {stats.points}
                       </span>
                     </td>
