@@ -246,7 +246,7 @@ export default function App() {
                 
                 <div className="text-center">
                   <h2 className="text-base sm:text-lg md:text-2xl xl:text-3xl font-bold text-gray-800">
-                    {currentWeek < 6 ? `${currentWeek + 1}. Hafta` : currentWeek === 6 ? 'Son 16 Turu - 1. Maç' : 'Son 16 Turu - 2. Maç'}
+                    {currentWeek + 1}. Hafta
                   </h2>
                   <p className="text-xs sm:text-sm xl:text-lg text-gray-600">{matchdays[currentWeek].title}</p>
                 </div>
