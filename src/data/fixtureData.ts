@@ -211,7 +211,7 @@ export const fixtureData = [
   },
   {
     week: 7,
-    title: "Son 16 Turu",
+    title: "Grup Aşaması",
     dateGroups: [
       {
         date: "Tuesday 20 January 2026",
@@ -245,7 +245,7 @@ export const fixtureData = [
   },
   {
     week: 8,
-    title: "Son 16 Turu",
+    title: "Grup Aşaması",
     dateGroups: [
       {
         date: "Wednesday 28 January 2026",

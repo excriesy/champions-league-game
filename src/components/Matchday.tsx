@@ -106,7 +106,7 @@ export default function Matchday({ matchday, weekIndex, updateScore, onResetWeek
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl xl:rounded-2xl p-2 sm:p-4 xl:p-6 border border-blue-200">
                          <div className="flex items-center justify-between mb-2 sm:mb-3 xl:mb-4">
                <h4 className="font-semibold text-blue-800 text-sm sm:text-lg xl:text-xl">
-                 Maç Günü #{selectedDateGroup + 1} - {formatTurkishDate(matchday.dateGroups[selectedDateGroup].date)}
+                 Hafta {matchday.week} - Maç Günü {selectedDateGroup + 1} - {formatTurkishDate(matchday.dateGroups[selectedDateGroup].date)}
                </h4>
               <button
                 onClick={() => setSelectedDateGroup(null)}
